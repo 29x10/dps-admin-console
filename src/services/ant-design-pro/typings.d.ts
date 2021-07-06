@@ -3,24 +3,8 @@
 
 declare namespace API {
   type CurrentUser = {
-    name?: string;
-    avatar?: string;
-    userid?: string;
-    email?: string;
-    signature?: string;
-    title?: string;
-    group?: string;
-    tags?: { key?: string; label?: string }[];
-    notifyCount?: number;
-    unreadCount?: number;
-    country?: string;
-    access?: string;
-    geographic?: {
-      province?: { label?: string; key?: string };
-      city?: { label?: string; key?: string };
-    };
-    address?: string;
-    phone?: string;
+    preferred_username?: string;
+    picture?: string;
   };
 
   type LoginResult = {
@@ -33,6 +17,77 @@ declare namespace API {
     current?: number;
     pageSize?: number;
   };
+
+  type LogItem = {
+    id?: number;
+    name: string;
+    legacy_name: string;
+    port: number;
+  }
+
+  type LogList = {
+    data: LogItem[];
+    total: number;
+    success: boolean;
+  }
+
+  type SyslogSetting = {
+    id: number;
+    option_key?: string;
+    option_value?: string;
+  }
+
+  type SyslogSourceItem = {
+    id?: number;
+    type: string;
+    settings: SyslogSetting[];
+    log_id: number;
+  }
+
+  type SyslogSourceList = {
+    data: SyslogSourceItem[];
+    total: number;
+    success: boolean;
+  }
+
+  type SyslogDestItem = {
+    id?: number;
+    type: string;
+    target: string;
+    name: string;
+    settings: SyslogSetting[];
+    log_id: number;
+  }
+
+  type SyslogDestList = {
+    data: SyslogDestItem[];
+    total: number;
+    success: boolean;
+  }
+
+  type VaultItem = {
+    id?: number;
+    mon_type: number;
+    mon_collectorextractor: number;
+    mon_endpointextractor: number;
+    description: string;
+    logdir: string;
+    logret: number;
+    mon_agealert: number;
+    volumename: string;
+    minreplicas: number;
+    numreplicas: number;
+    scheduleid: number
+    log_id: number;
+    acl_users: string[];
+    acl_groups: string[];
+  }
+
+  type VaultList = {
+    data: VaultItem[];
+    total: number;
+    success: boolean;
+  }
 
   type RuleListItem = {
     key?: number;

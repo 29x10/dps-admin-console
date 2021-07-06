@@ -9,7 +9,7 @@ import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 import { BookOutlined, LinkOutlined } from '@ant-design/icons';
 
 const isDev = process.env.NODE_ENV === 'development';
-const loginPath = '/user/login';
+const loginPath = '/oauth2/authorization/oidc';
 
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
@@ -86,6 +86,7 @@ export async function getInitialState(): Promise<{
     504: The gateway timed out. ',
  * @see https://beta-pro.ant.design/docs/request-cn
  */
+
 export const request: RequestConfig = {
   errorHandler: (error: any) => {
     const { response } = error;
@@ -106,7 +107,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
     waterMarkProps: {
-      content: initialState?.currentUser?.name,
+      content: initialState?.currentUser?.preferred_username,
     },
     footerRender: () => <Footer />,
     onPageChange: () => {
@@ -120,11 +121,11 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
       ? [
           <Link to="/umi/plugin/openapi" target="_blank">
             <LinkOutlined />
-            <span>openAPI 文档</span>
+            <span>OpenAPI</span>
           </Link>,
           <Link to="/~docs">
             <BookOutlined />
-            <span>业务组件文档</span>
+            <span>Component Doc</span>
           </Link>,
         ]
       : [],

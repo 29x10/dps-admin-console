@@ -1,50 +1,27 @@
 ﻿export default [
   {
-    path: '/user',
-    layout: false,
-    routes: [
-      {
-        path: '/user',
-        routes: [
-          {
-            name: 'login',
-            path: '/user/login',
-            component: './user/Login',
-          },
-        ],
-      },
-    ],
+    name: 'log.list',
+    icon: 'FileTextOutlined',
+    path: '/logs',
+    component: './LogList'
   },
   {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
+    name: 'syslog.source.list',
+    icon: 'ImportOutlined',
+    path: '/syslog_source',
+    component: './SyslogSourceList'
   },
   {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    component: './Admin',
-    routes: [
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        icon: 'smile',
-        component: './Welcome',
-      },
-    ],
+    name: 'syslog.dest.list',
+    icon: 'ExportOutlined',
+    path: '/syslog_dest',
+    component: './SyslogDestList'
   },
   {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
+    name: 'vault.list',
+    icon: 'SafetyOutlined',
+    path: '/vault',
+    component: './VaultList'
   },
   {
     component: './404',

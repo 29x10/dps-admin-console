@@ -49,4 +49,8 @@ export default {
   'menu.editor.flow': 'Flow Editor',
   'menu.editor.mind': 'Mind Editor',
   'menu.editor.koni': 'Koni Editor',
+  'menu.log.list': 'Log',
+  'menu.syslog.source.list': 'Syslog Source',
+  'menu.syslog.dest.list': 'Syslog Destination',
+  'menu.vault.list': 'Vault'
 };
